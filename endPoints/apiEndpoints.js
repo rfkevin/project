@@ -1,7 +1,6 @@
 import { dbRequest } from "@/utils/request";
 
-const apiUrl = process.env.BACK_URL;
-
+// registre new client
 export async function register(user) {
   const options = {
     method: "POST",
@@ -9,3 +8,14 @@ export async function register(user) {
   };
   return await dbRequest("/api/register", options);
 }
+
+
+// proccess to payment
+export async function paymentCheckOut (cartItems){
+  console.log(cartItems);
+  const options = {
+    method: "POST",
+    body: JSON.stringify(cartItems),
+  };
+  return await dbRequest("/api/payment", options)
+} 
