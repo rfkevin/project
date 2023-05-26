@@ -1,9 +1,15 @@
+import Footer from "@/compenents/foot"
 
 
-const home = () => {
+
+export default function home() {
   return (
-    <div>home</div>
+    <main>
+    <Footer/>
+    
+    
+    </main>
+    
   )
 }
 
-export default home
