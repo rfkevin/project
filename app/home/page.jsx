@@ -1,9 +1,14 @@
+import './page.css';
 
 
-const home = () => {
+const page = () => {
   return (
-    <div>home</div>
-  )
-}
-
-export default home
+    <div className="page" style={{ backgroundImage: '../public/batteries-diagnostic.webp' }}>
+      <div className="content">
+        <h1>DétachezVous</h1>
+        <button>Start</button>
+      </div>
+    </div>
+  );
+};
+export default page;
