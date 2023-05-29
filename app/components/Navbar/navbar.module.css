@@ -1,0 +1,79 @@
+
+
+.navbar{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    margin-top: -10px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 20px 30px;
+}
+
+.ul{
+    display: flex;
+    align-content: center;
+    gap: 20px;
+   
+}
+
+.ulright{
+    margin-left: -100px;
+    display: flex;
+    align-content: center;
+    gap: 20px;
+}
+.ulright li{
+    list-style: none;
+}
+.ul li{
+    list-style: none;
+}
+
+.ulright li a{
+    color: black;
+    text-decoration: none;
+}
+
+.ul li a{
+    color: black;
+    text-decoration: none;
+}
+
+.input{
+    padding: 10px 30px;
+    padding-right: calc(30px + 15px);
+    font-size: 15px;
+    border-radius: 25px;
+    background-color: #eee;
+    outline: none;
+    border: none;
+}
+
+.input-wrapper{
+    display: flex;
+    margin-top: 10px;
+}
+
+.input-wrapper::after{
+    content: '\f002';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    width: 15px;
+    height: 15px;
+    color: #666;
+    display: block;
+    position: relative;
+    margin-left: -20px;
+    top: 11px;
+    right: 15px;
+}
+
+.input::placeholder{
+    color: #999;
+}
+

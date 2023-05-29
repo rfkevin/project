@@ -1,0 +1,33 @@
+.features{
+    max-width: 100%;
+    margin: 0 20px;
+    height: 300px;
+}
+.bg{
+    background-color: #222;
+    color: #ffff;
+    margin-top: -10px;
+    padding: 50px 0;
+    opacity: 1;
+}
+.title h1{
+    margin: 0;
+    font-weight: normal;
+    text-align: justify !important;
+}
+
+.title p{
+    padding: 10px 20px;
+    color: #aaa;
+    font-size: .8rem;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+.wrapper img{
+    width: 70%;
+    left: auto;
+}

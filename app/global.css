@@ -1,0 +1,11 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.swiper-slide {
+    padding-bottom: 80px;  
+}
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+    width: fit-content;
+}

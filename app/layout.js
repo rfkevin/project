@@ -1,3 +1,13 @@
+
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import './global.css'
+import { Inter } from 'next/font/google'
+
+
+const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Detachez-vous',
   description: 'to do',
@@ -6,7 +16,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
  return (
     <html lang="en">
-      <body>{children}</body>
+      
+      <body className={inter.className}>
+        {children}
+      </body>
+      
     </html>
   )
 }
