@@ -4,8 +4,10 @@ import { Logo } from '../Logo/Logo'
 import styles from './navbar.module.css'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
-import { Badge, useMediaQuery, useTheme, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
+import { Badge, useMediaQuery, useTheme, AppBar, Toolbar, IconButton, Menu, MenuItem, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { AccountMenu } from '../Dropdown/DropdownUser/AccountMenu';
+import { NavMenu } from '../Dropdown/DropdownUser/DropdownMenu/NavMenu';
 
 export const Navbar = (): JSX.Element => {
     const theme = useTheme();
@@ -36,16 +38,42 @@ export const Navbar = (): JSX.Element => {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <a href="">Marque de véhicules</a>
+            <NavMenu title="Marques">
+                                <MenuItem>Toyota</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+            </NavMenu>
+            </MenuItem>
+            <NavMenu title="Produits">
+                                <MenuItem>urgyihf</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+            </NavMenu>
+            <MenuItem>
+            <NavMenu title="Services">
+                                <MenuItem>Toyota</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+            </NavMenu>
             </MenuItem>
             <MenuItem>
-                <a href="">Pièces détachées</a>
-            </MenuItem>
-            <MenuItem>
-                <a href="">Assistance</a>
-            </MenuItem>
-            <MenuItem>
-                <a href="">Recyclages</a>
+            <NavMenu title="Contact">
+                                <MenuItem>Toyota</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+            </NavMenu>
             </MenuItem>
         </Menu>
     );
@@ -69,16 +97,44 @@ export const Navbar = (): JSX.Element => {
                 ) : (
                     <ul className={`${styles.ul}`}>
                         <li>
-                            <a href="">Marque de véhicules</a>
+                        <NavMenu title="Marques">
+                                <MenuItem>Toyota</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+                            </NavMenu>
                         </li>
                         <li>
-                            <a href="">Pièces détachées</a>
+                        <NavMenu title="Produits">
+                                <MenuItem>urgyihf</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+                            </NavMenu>
                         </li>
                         <li>
-                            <a href="">Assistance</a>
+                        <NavMenu title="Services">
+                                <MenuItem>Toyota</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+                            </NavMenu>
                         </li>
                         <li>
-                            <a href="">Recyclages</a>
+                        <NavMenu title="Contact">
+                                <MenuItem>Toyota</MenuItem>
+                                <MenuItem>Audi</MenuItem>
+                                <MenuItem>Nissan</MenuItem>
+                                <MenuItem>Peugeot</MenuItem>
+                                <MenuItem>Renault</MenuItem>
+                                <MenuItem>Tesla</MenuItem>
+                            </NavMenu>
                         </li>
                     </ul>
                 )}
@@ -91,17 +147,16 @@ export const Navbar = (): JSX.Element => {
 
                 <ul className={`${styles.ulright}`}>
                     <li>
-                        <a href="">
-                            <AccountCircle />
-                        </a>
+                        <div className={`${styles.iconUser}`}>
+                        <AccountMenu />
+                        </div>
                     </li>
                     <li>
-                        <a href="">
                         
                             <Badge color='primary' badgeContent={1} anchorOrigin={{vertical: 'top', horizontal:'right',}}>
-                            <ShoppingCart />
+                            <a href="/cart"><ShoppingCart /></a>
                             </Badge>
-                        </a>
+                        
                     </li>
                 </ul>
         </div>

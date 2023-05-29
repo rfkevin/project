@@ -6,11 +6,12 @@ type BasicCardProps = {
     title: string,
     note: 0 | 1 | 2 | 3 | 4 | 5,
     subtitle: string,
-    raters: number
+    raters: number,
+    isOnCart?: boolean
 }
 
 
-export const BasicCard = ({title, subtitle, note, raters}: BasicCardProps): JSX.Element => {
+export const BasicCard = ({title, subtitle, note, raters, isOnCart}: BasicCardProps): JSX.Element => {
 
     const notes: boolean[] = []
 
@@ -40,9 +41,13 @@ export const BasicCard = ({title, subtitle, note, raters}: BasicCardProps): JSX.
                         </small>
                     </div>
                     <div style={{marginTop: '20px'}}>
+                        { !isOnCart ?
                         <button className={styles.button}>
                             Add to Cart
                         </button>
+                        : 
+                        ''
+                        }
                     </div>
                 </div>
             </div>
