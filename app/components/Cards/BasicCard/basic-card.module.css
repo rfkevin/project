@@ -1,0 +1,55 @@
+
+
+.card{
+
+}
+
+.description{
+    margin-top: 20px;
+}
+
+.button{
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 100ms linear;
+}
+
+.button:hover{
+    background-color: black;
+    color: white;
+}
+
+.heart-button{
+    border: solid black 1px;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    transition: all 200ms linear;
+    cursor: pointer;
+}
+
+.heart-button::after{
+    content: '\f004';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 400;
+    position: relative;
+    top: 1px;
+}
+
+.heart-button:hover{
+    background-color: black;
+}
+
+.heart-button:hover::after{
+    color: white;
+    font-weight: 900;
+}
