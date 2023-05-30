@@ -1,4 +1,4 @@
-import Footer from "@/compenents/foot"
+import Footer from "@/components/foot"
 export const metadata = {
   title: 'Detachez-vous',
   description: 'to do',

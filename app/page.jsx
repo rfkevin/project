@@ -2,7 +2,7 @@
 
 const landing = () => {
   return (
-    <div>Landing Page</div>
+    <div></div>
   )
 }
 

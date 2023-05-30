@@ -1,4 +1,4 @@
-import Footer from "@/compenents/foot"
+import Footer from "@/components/foot"
 
 
 
