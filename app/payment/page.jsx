@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
-import getStripe from '@/utils/getStripe';
-import { paymentCheckOut } from '@/endPoints/apiEndpoints';
+import getStripe from '../../utils/getStripe';
+import { paymentCheckOut } from '../../endPoints/apiEndpoints';
 const page = () => {
     const product = [{name: "bons", price: 10, quantity: 2}, {name: "city", price: 50, quantity: 4}]
     const handleCheckout = async () => {

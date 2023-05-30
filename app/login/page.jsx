@@ -2,7 +2,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { signIn, signOut } from "next-auth/react";
-import { loginValidation } from '@/utils/validation';
+import { loginValidation } from '../../utils/validation';
 import { useFormik } from 'formik';
 import { Paper, Box, Button, TextField } from '@mui/material';
 /* `${styles["bababa"]}`, ${styles.koko}*/

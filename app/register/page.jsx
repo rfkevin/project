@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser, HiPhone } from "react-icons/hi";
-import { register } from '@/endPoints/apiEndpoints';
+import { register } from '../../endPoints/apiEndpoints';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useFormik } from 'formik';
-import { registerValidation } from '@/utils/validation';
+import { registerValidation } from '../../utils/validation';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';

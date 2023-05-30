@@ -1,7 +1,7 @@
 "use client"
 import { useEffect } from 'react';
 import { BsBagCheckFill } from 'react-icons/bs';
-import { runFirework } from '@/utils/fireWorks';
+import { runFirework } from '../../../utils/fireWorks';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 

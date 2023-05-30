@@ -1,5 +1,5 @@
-import { connectToDB } from "@/utils/database";
-import User from "@/models/user";
+import { connectToDB } from "../../../utils/fireWorks";
+import User from "../../../models/user";
 import { hash } from "bcrypt";
 
 export const POST = async (req) => {

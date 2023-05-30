@@ -1,4 +1,4 @@
-import { dbRequest } from "@/utils/request";
+import { dbRequest } from "../utils/request";
 
 // registre new client
 export async function register(user) {

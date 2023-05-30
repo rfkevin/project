@@ -1,9 +1,9 @@
 import NextAuth  from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import jwt from 'jsonwebtoken';
-import { connectToDB } from '@/utils/database';
+import { connectToDB} from  '../../../../utils/database'
 import CredentialsProvider from 'next-auth/providers/credentials';
-import User from '@/models/user';
+import User from '../../../../models/user';
 import  {compare} from 'bcrypt'
 
 
