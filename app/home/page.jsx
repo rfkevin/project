@@ -4,6 +4,7 @@ import { Featured } from '../components/Featured/Featured'
 import { Navbar } from '../components/Navbar/Navbar'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper";
+import './page.css';
 
 export default function Home() {
   return (
