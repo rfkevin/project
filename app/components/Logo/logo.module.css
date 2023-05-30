@@ -1,0 +1,27 @@
+@keyframes rotate {
+    0%{ transform: rotate(0); }
+    100%{ transform: rotate(360deg); }
+}
+
+
+
+.img{ position: relative; }
+
+.gear{
+    transform-origin: center;
+    animation: rotate 1600ms linear infinite;
+}
+
+.piston{ 
+    margin-left: -55px; 
+}
+
+.a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #112233;
+}
