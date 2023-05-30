@@ -12,7 +12,6 @@ export async function register(user) {
 
 // proccess to payment
 export async function paymentCheckOut (cartItems){
-  console.log(cartItems);
   const options = {
     method: "POST",
     body: JSON.stringify(cartItems),

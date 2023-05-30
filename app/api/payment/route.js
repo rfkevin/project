@@ -30,7 +30,7 @@ export async function POST(req) {
             submit_type: 'pay',
             payment_method_types: ['card'],
             billing_address_collection: 'auto',
-            success_url: `${req.url}/?success=true`,
+            success_url: `http://localhost:3000/payment/success`,
             cancel_url: `${req.url}/?canceled=true`,
             shipping_options: [
                 { shipping_rate: 'shr_1N8UJdLXsyqJa5uy0D99fV5a' },
@@ -38,7 +38,7 @@ export async function POST(req) {
             ]
         }
         const session = await stripe.checkout.sessions.create(params);
-        console.log(`${req.headers.origin}/?success=true`)
+        console.log(session);
         const response = new Response(JSON.stringify(session), { status: 200, headers: { 'Content-Type': 'application/json' }});
         return response;
     } catch (err) {

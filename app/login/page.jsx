@@ -4,9 +4,7 @@ import Link from 'next/link';
 import { signIn, signOut } from "next-auth/react";
 import { loginValidation } from '@/utils/validation';
 import { useFormik } from 'formik';
-import {styles} from "./login.module.css" ;
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
+import { Paper, Box, Button, TextField } from '@mui/material';
 /* `${styles["bababa"]}`, ${styles.koko}*/
 
 const Login = () => {
@@ -36,64 +34,65 @@ const Login = () => {
   }
 
   return (
-    <>
-    <Box >
-      <Head>
-        <title>Login</title>
-      </Head>
-
-      <section className='w-3/4 mx-auto flex flex-col gap-10'>
-        <div className="title">
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+      }}
+    >
+      <Paper elevation={3} sx={{ padding: '2rem', maxWidth: '400px', background: '#00008B' }}>
+        <Head>
+          <title>Login</title>
+        </Head>
+        <Box sx={{ mb: '2rem', textAlign: 'center' }}>
           <h1 className='text-gray-800 text-4xl font-bold py-4'>Detachezvous</h1>
           <p className='w-3/4 mx-auto text-gray-400'>BLALALALALALALALALLlallalalalalalaalallaalalallall</p>
-        </div>
-
-        {/* form */}
+        </Box>
         <form onSubmit={formik.handleSubmit}>
-          <div className="input-group">
-            <input
-              type="email"
-              name='email'
-              placeholder='Email *'
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
-
-          </div>
-          {formik.errors.email && formik.touched.email ? <span>{formik.errors.email}</span> : <></>}
-          <div className="input-group">
-            <input
-              type="password"
-              name='password'
-              placeholder='password *'
-              onChange={formik.handleChange}
-              value={formik.values.password}
-            />
-
-          </div>
-          {formik.errors.password && formik.touched.password? <span>{formik.errors.password}</span> : <></>}
-          {/* login buttons */}
-          <div className="input-button">
-            <button type='submit'>
+          <TextField
+            type="email"
+            name="email"
+            label="Email"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            error={formik.touched.email && formik.errors.email}
+            helperText={formik.touched.email && formik.errors.email}
+          />
+          <TextField
+            type="password"
+            name="password"
+            label="Password"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            error={formik.touched.password && formik.errors.password}
+            helperText={formik.touched.password && formik.errors.password}
+          />
+          <Box sx={{ textAlign: 'center', my: '1rem' }}>
+            <Button type="submit" variant="contained" fullWidth>
               Login
-            </button>
-          </div>
-
+            </Button>
+          </Box>
         </form>
-        <div >
-          <button onClick={handleGoogleSignIn}>
+        <Box sx={{ textAlign: 'center', my: '1rem' }}>
+          <Button variant="contained" fullWidth onClick={handleGoogleSignIn}>
             Sign In with Google
-          </button>
-        </div>
-        {/* bottom */}
-
-        <p className='text-center text-gray-400 '>
-          don't have an account yet? <Link href={'/register'}>Sign Up </Link>
+          </Button>
+        </Box>
+        <p className='text-center text-gray-400'>
+          Don't have an account yet? <Link href={'/register'}>Sign Up</Link>
         </p>
-      </section>
-      </Box>
-    </>
-  )
+      </Paper>
+    </Box>
+  );
+  
 }
 
 export default Login;
