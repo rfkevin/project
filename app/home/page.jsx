@@ -4,12 +4,19 @@ import { Featured } from '../components/Featured/Featured'
 import { Navbar } from '../components/Navbar/Navbar'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper";
+import { useState } from "react";
 
 export default function Home() {
+  /* petit toggle sur panier*/
+  const [cartCount, setCartCount] = useState(0);
+  const addToCart = () => {
+    setCartCount(cartCount + 1);
+  };
+  /*                           */
   return (
     <main>
       <div>
-       <Navbar/>
+       <Navbar cartCount={cartCount} />
        <div style={{padding:'92px',display: 'flex'}}>
         <Swiper modules={[Autoplay]}
         autoplay={{
@@ -65,6 +72,7 @@ export default function Home() {
             subtitle='Pièces peugeot, 3008'
             note={3}
             raters={263}
+            addToCart={addToCart}
           />
           <BasicCard title='Kit distribution Blablabla'
             subtitle='Pièces peugeot, 3008'

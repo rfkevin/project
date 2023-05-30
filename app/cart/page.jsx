@@ -1,6 +1,7 @@
 "use client"
 import { Navbar } from '../components/Navbar/Navbar'
 import { BasicCard } from '../components/Cards/BasicCard/BasicCard'
+import styles from '../cart/page.module.css'
 
 export default function Cart() {
   return (
@@ -34,6 +35,11 @@ export default function Cart() {
             raters={263}
             isOnCart={true}
           />
+        </div>
+        <div style={{padding:'20px', paddingTop: '90px',display: 'flex', alignItems: 'center',marginLeft: '100px'}}>
+        <button className={styles.button}>
+                            Passer au commande
+                        </button>
         </div>
     </main>
   )

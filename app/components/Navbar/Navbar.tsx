@@ -7,9 +7,13 @@ import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import { Badge, useMediaQuery, useTheme, AppBar, Toolbar, IconButton, Menu, MenuItem, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AccountMenu } from '../Dropdown/DropdownUser/AccountMenu';
-import { NavMenu } from '../Dropdown/DropdownUser/DropdownMenu/NavMenu';
+import { NavMenu } from '../Dropdown/DropdownMenu/NavMenu';
 
-export const Navbar = (): JSX.Element => {
+type NavbarProps = {
+    cartCount: number;
+}
+
+export const Navbar = ({cartCount}: NavbarProps): JSX.Element => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -153,7 +157,7 @@ export const Navbar = (): JSX.Element => {
                     </li>
                     <li>
                         
-                            <Badge color='primary' badgeContent={1} anchorOrigin={{vertical: 'top', horizontal:'right',}}>
+                            <Badge color='primary' badgeContent={cartCount} anchorOrigin={{vertical: 'top', horizontal:'right',}}>
                             <a href="/cart"><ShoppingCart /></a>
                             </Badge>
                         
