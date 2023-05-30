@@ -4,7 +4,6 @@ export const metadata = {
 }
 import Footer from "@/components/footer";
 import Provider from "@/components/providers";
-import '../styles/style.css '
 
 export default function RootLayout({ children }) {
   return (
