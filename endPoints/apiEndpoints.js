@@ -18,3 +18,12 @@ export async function paymentCheckOut (cartItems){
   };
   return await dbRequest("/api/payment", options)
 } 
+
+// add new product
+export async function addProduct(product){
+  const options = {
+    method: "POST",
+    body: JSON.stringify(product),
+  };
+  return await dbRequest("/api/product", options);
+}
