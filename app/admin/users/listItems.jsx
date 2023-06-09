@@ -13,7 +13,7 @@ export const mainListItems = (
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Users" />
     </ListItemButton>
     
   </React.Fragment>

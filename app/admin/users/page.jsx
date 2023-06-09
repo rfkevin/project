@@ -15,6 +15,11 @@ import {mainListItems} from './listItems';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import {DataTable} from "../../components/Table/Table";
+import { Buttons } from '../../components/Buttons/Buttons';
+import styles from './page.module.css';
+
+
 
 const drawerWidth = 240;
 
@@ -138,11 +143,17 @@ export default function Dashboard() {
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
+        
           }}
           
         >
           <Toolbar />
           
+          <DataTable/>
+          <div className={`${styles.Buttons}`}>
+            <Buttons></Buttons>
+          </div>
+            
         </Box>
        
       </Box>
