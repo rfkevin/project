@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import {Buttons} from '../../Buttons/Buttons';
+import styles from '../TableProduct/tableproduct.module.css'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -34,7 +36,7 @@ const rows = [
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
-export const  DataTable = () => {
+export const  DataTableProduct = () => {
   return (
     <>
     <div style={{ height: 400, width: '100%' }}>
@@ -50,6 +52,9 @@ export const  DataTable = () => {
         checkboxSelection
       />
     </div>
+    <div className={`${styles.Buttons}`}>
+            <Buttons></Buttons>
+          </div>
     </>
   )
 }

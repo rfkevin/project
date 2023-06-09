@@ -10,28 +10,32 @@ const ProductSchema = new Schema ({
 
     title : {
         type : String,
-        
-        
-        
-    },
-    note : {
-        type : Schema.Types.Mixed,  
     },
     subtitle : {
         type: String,
         required: [true, "subtitle is required"],
+    },
+    categories: {
+        type : String,
+        required : [true, "categories is required"]
     },    
     type : {
         type : String,
         required: [true, "type of product is required"],
     },
+    marque : {
+        type : String,
+    },
+    years: {
+        type : Number,
+    },
     raters : {
         type : Number,
 
     },
-    prix : {
+    price : {
         type : Number,
-        required: [true, "prix is required"],
+        required: [true, "price is required"],
     },
 });
 

@@ -7,12 +7,12 @@ import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
 export const Buttons= () => {
   return (
-    <Stack direction="row" spacing={2}>
-      <Button variant="outlined" startIcon={<ControlPointIcon />}>
+    <Stack direction="row" spacing={1}>
+      <Button variant="rounded" startIcon={<ControlPointIcon />}>
       </Button>  
-      <Button variant="outlined" startIcon={<DeleteIcon />}>
+      <Button variant="rounded" startIcon={<DeleteIcon />}>
       </Button>
-      <Button variant="outlined" endIcon={<CreateIcon />}>
+      <Button variant="rounded" endIcon={<CreateIcon />}>
       </Button>
     </Stack>
   );

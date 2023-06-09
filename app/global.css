@@ -17,3 +17,6 @@
 .MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-m9mp0w-MuiToolbar-root > .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-sizeMedium.css-zylse7-MuiButtonBase-root-MuiIconButton-root{
     display: none !important;
 }
+.MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+    display: center !important;
+}

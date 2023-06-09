@@ -11,13 +11,13 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-import {mainListItems} from './listItems';
+import {mainListItems} from '../admin/users/listItems';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import {DataTable} from "../../components/Table/Table";
-import { Buttons } from '../../components/Buttons/Buttons';
-import styles from './page.module.css';
+import { DataTableUser } from '../components/Tables/TableUser/TableUser';
+import { DataTableProduct } from '../components/Tables/TableProduct/TableProduct';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 
@@ -72,12 +72,18 @@ const defaultTheme = createTheme();
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
+  const handleListItemClick = () => {
+    setShowTable(True);
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
+      <Router>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -129,7 +135,7 @@ export default function Dashboard() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+          {React.cloneElement(mainListItems, { onClick: handleListItemClick })}
             
           </List>
         </Drawer>
@@ -147,16 +153,19 @@ export default function Dashboard() {
           }}
           
         >
-          <Toolbar />
+          <Toolbar />  
+          <Routes>
+              <Route path="/admin" element={<DataTableUser/>} />
+              <Route path="/products" element={<DataTableProduct/>}>
+              </Route>
+              {/* Add as many Routes as needed for different pages */}
+          </Routes>
           
-          <DataTable/>
-          <div className={`${styles.Buttons}`}>
-            <Buttons></Buttons>
-          </div>
             
         </Box>
        
       </Box>
+      </Router>
     </ThemeProvider>
   );
 }

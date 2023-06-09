@@ -5,7 +5,7 @@ export const POST = async (req) => {
     const data = await req.json();
     try {
         await connectToDB();
-        const { id, title, note, subtitle, type, raters, prix } = data;
+        const { id, title, subtitle, categories, type, marque, years, raters, price } = data;
 
         const idItem = await Product.findOne({ id });
         if (idItem) {
@@ -15,11 +15,13 @@ export const POST = async (req) => {
         const newProduct = await Product.create({
             id,
             title,
-            note,
             subtitle,
+            categories,
             type,
+            marque,
+            years,
             raters,
-            prix,
+            price,
             type: "Produits",
         });
 
