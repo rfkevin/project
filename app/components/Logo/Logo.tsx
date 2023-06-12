@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from './logo.module.css'
-import React from "react"
+
 
 export const Logo = (): JSX.Element => {
     return (
