@@ -1,9 +1,26 @@
 import { dbRequest } from "../utils/request";
-
+/* USER */
 // registre new client
 export async function register(user) {
   const options = {
     method: "POST",
+    body: JSON.stringify(user),
+  };
+  return await dbRequest("/api/register", options);
+}
+
+// show a client
+export async function getUser(){
+  const options = {
+    method: "GET",
+  };
+  return await dbRequest("/api/register", options);
+}
+
+// modify a client 
+export async function updateUser(user){
+  const options = {
+    method: "PUT",
     body: JSON.stringify(user),
   };
   return await dbRequest("/api/register", options);
@@ -17,6 +34,14 @@ export async function paymentCheckOut (cartItems){
     body: JSON.stringify(cartItems),
   };
   return await dbRequest("/api/payment", options)
+}
+// remove an product
+export async function remUser(user){
+  const options = {
+    method: "DELETE",
+    body: JSON.stringify(user),
+  };
+  return await dbRequest("/api/register", options);
 } 
 /* PRODUCTS */
 
@@ -30,10 +55,9 @@ export async function addProduct(product){
 }
 
 //  show a product
-export async function getProduct(product){
+export async function getProduct(){
   const options = {
     method: "GET",
-    body: JSON.stringify(product),
   };
   return await dbRequest("/api/product", options);
 }

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Buttons } from '../../Buttons/Buttons';
-import styles from './tableuser.module.css';
+import { Buttons } from '../../components/Buttons/Buttons';
+import styles from './page.module.css';
+import { UserForm } from '../../components/Form/UserForm';
+import { getUser } from '../../../endPoints/apiEndpoints';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -23,8 +25,7 @@ const columns = [
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
 ];
-
-const rows = [
+/*const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
   { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
@@ -34,9 +35,31 @@ const rows = [
   { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+];*/
+
+
 
 export const  DataTableUser = () => {
+  const [rows, setRows] = React.useState([]);
+  const [showForm, setShowForm] = React.useState(false);
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getUser();
+        const dataWithIds = response.data.user.map((user) => ({
+          ...user,
+          id: user._id,
+        }));
+        console.log(dataWithIds);
+        setRows(dataWithIds);
+      } catch (error) {
+        console.error('Erreur de récupération', error);
+      }
+    };
+    
+    
+    fetchData();
+  },[] )
   return (
     <>
     <div style={{ height: 400, width: '100%' }}>
@@ -53,8 +76,9 @@ export const  DataTableUser = () => {
       />
     </div>
     <div className={`${styles.Buttons}`}>
-            <Buttons></Buttons>
-          </div>
+        <Buttons setShowForm={setShowForm} />
+    </div>
+    {showForm && <UserForm setShowForm={setShowForm} />}
     </>
   )
 }

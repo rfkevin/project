@@ -15,8 +15,8 @@ import {mainListItems} from '../admin/users/listItems';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { DataTableUser } from '../components/Tables/TableUser/TableUser';
-import { DataTableProduct } from '../components/Tables/TableProduct/TableProduct';
+import { DataTableUser } from './users/page';
+import { DataTableProduct } from './products/page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
@@ -155,7 +155,7 @@ export default function Dashboard() {
         >
           <Toolbar />  
           <Routes>
-              <Route path="/admin" element={<DataTableUser/>} />
+              <Route path="/users" element={<DataTableUser/>} />
               <Route path="/products" element={<DataTableProduct/>}>
               </Route>
               {/* Add as many Routes as needed for different pages */}

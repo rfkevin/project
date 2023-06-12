@@ -53,10 +53,9 @@ export const DELETE = async (req) => {
 };
 
 export const GET = async (req) => {
-    const { id } = req.params;
     try {
         await connectToDB();
-        const product = await Product.findById(id);
+        const product = await Product.find();
         if (!product) {
             return new Response(JSON.stringify({ message: "Product not found!" }), { status: 404 });
         }
