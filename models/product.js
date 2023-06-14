@@ -3,13 +3,10 @@ import {Schema, model, models} from 'mongoose';
 // users model in database
 
 const ProductSchema = new Schema ({
-    id : {
-        type : String,
-        unique: [true, 'product already exist'],
-    },
 
     title : {
         type : String,
+        unique: [true, 'product already exist'],
     },
     subtitle : {
         type: String,
@@ -36,6 +33,10 @@ const ProductSchema = new Schema ({
     price : {
         type : Number,
         required: [true, "price is required"],
+    },
+    quantity : {
+        type : Number,
+        requires: [true, "quantity is required"],
     },
 });
 

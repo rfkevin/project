@@ -5,12 +5,12 @@ import Stack from '@mui/material/Stack';
 import CreateIcon from '@mui/icons-material/Create';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
-export const Buttons = ({setShowForm}) => {
+export const Buttons = ({setShowForm, handleDelete}) => {
   return (
     <Stack direction="row" spacing={1}>
       <Button variant="rounded" startIcon={<ControlPointIcon />} onClick={() => setShowForm(true)}>
       </Button>  
-      <Button variant="rounded" startIcon={<DeleteIcon />}>
+      <Button variant="rounded" startIcon={<DeleteIcon />} onClick={handleDelete}>
       </Button>
       <Button variant="rounded" endIcon={<CreateIcon />}>
       </Button>

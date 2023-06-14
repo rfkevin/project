@@ -35,7 +35,7 @@ export async function paymentCheckOut (cartItems){
   };
   return await dbRequest("/api/payment", options)
 }
-// remove an product
+// remove an user
 export async function remUser(user){
   const options = {
     method: "DELETE",
@@ -47,10 +47,12 @@ export async function remUser(user){
 
 // add new product
 export async function addProduct(product){
+  console.log(product);
   const options = {
     method: "POST",
     body: JSON.stringify(product),
   };
+
   return await dbRequest("/api/product", options);
 }
 

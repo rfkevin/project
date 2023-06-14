@@ -1,19 +1,18 @@
-import { connectToDB } from "../../../utils/fireWorks";
+import { connectToDB } from "../../../utils/database";
 import Product from "../../../models/product";
 
 export const POST = async (req) => {
     const data = await req.json();
     try {
         await connectToDB();
-        const { id, title, subtitle, categories, type, marque, years, raters, price } = data;
-
-        const idItem = await Product.findOne({ id });
-        if (idItem) {
+        const { title, subtitle, categories, type, marque, years, raters, price, quantity } = data;
+        console.log
+        const titleItem = await Product.findOne({ title });
+        if (titleItem) {
             return new Response(JSON.stringify({ message: "Product Already exists !" }), { status: 422 });
         }
 
         const newProduct = await Product.create({
-            id,
             title,
             subtitle,
             categories,
@@ -22,6 +21,7 @@ export const POST = async (req) => {
             years,
             raters,
             price,
+            quantity,
             type: "Produits",
         });
 
@@ -36,14 +36,14 @@ export const DELETE = async (req) => {
     const data = await req.json();
     try {
         await connectToDB();
-        const { id } = data;
+        const { title } = data;
 
-        const productToDelete = await Product.findOne({ id });
+        const productToDelete = await Product.findOne({ title });
         if (!productToDelete) {
             return new Response(JSON.stringify({ message: "Product not found!" }), { status: 404 });
         }
 
-        await Product.deleteOne({ id });
+        await Product.deleteOne({ title });
         
         return new Response(JSON.stringify({ status: true, message: "Product deleted successfully." }), { status: 200 });
     } catch (error) {
@@ -66,16 +66,16 @@ export const GET = async (req) => {
     }
 };
 export const PUT = async (req) => {
-    const { id } = req.params;
+    const { title } = req.params;
     const data = await req.json();
     try {
         await connectToDB();
-        const productToUpdate = await Product.findById(id);
+        const productToUpdate = await Product.findBytitle(title);
         if (!productToUpdate) {
             return new Response(JSON.stringify({ message: "Product not found!" }), { status: 404 });
         }
 
-        const updatedProduct = await Product.findByIdAndUpdate(id, { ...data }, { new: true });
+        const updatedProduct = await Product.findBytitleAndUpdate(title, { ...data }, { new: true });
         
         return new Response(JSON.stringify({ status: true, product: updatedProduct }), { status: 200 });
     } catch (error) {
