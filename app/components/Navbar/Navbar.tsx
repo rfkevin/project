@@ -2,7 +2,6 @@
 import React from 'react'
 import { Logo } from '../Logo/Logo'
 import styles from './navbar.module.css'
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import { Badge, useMediaQuery, useTheme, AppBar, Toolbar, IconButton, Menu, MenuItem, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -130,6 +129,7 @@ export const Navbar = (): JSX.Element => {
                         <NavMenu title="Contact">
                                 <MenuItem>Toyota</MenuItem>
                                 <MenuItem>Audi</MenuItem>
+                    
                                 <MenuItem>Nissan</MenuItem>
                                 <MenuItem>Peugeot</MenuItem>
                                 <MenuItem>Renault</MenuItem>
@@ -138,7 +138,6 @@ export const Navbar = (): JSX.Element => {
                         </li>
                     </ul>
                 )}
-
                 <div>
                     <div className={styles['input-wrapper']}>
                         <input placeholder='Search' className={`${styles.input}`} type="text" />

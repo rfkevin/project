@@ -32,7 +32,6 @@ const Login = () => {
   async function handleGoogleSignIn() {
     signIn('google', { callbackUrl: "http://localhost:3000/home" })
   }
-
   return (
     <Box
       sx={{
@@ -77,10 +76,36 @@ const Login = () => {
           />
           <Box sx={{ textAlign: 'center', my: '1rem' }}>
             <Button type="submit" variant="contained" fullWidth>
-              Login
+             
+             -=
+
+
+
+
+x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </Button>
-          </Box>
-        </form>
         <Box sx={{ textAlign: 'center', my: '1rem' }}>
           <Button variant="contained" fullWidth onClick={handleGoogleSignIn}>
             Sign In with Google

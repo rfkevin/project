@@ -27,3 +27,9 @@ export async function addProduct(product){
   };
   return await dbRequest("/api/product", options);
 }
+
+// order
+
+export async function addOrder(order){
+  
+}
