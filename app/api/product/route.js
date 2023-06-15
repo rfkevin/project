@@ -6,7 +6,6 @@ export const POST = async (req) => {
     try {
         await connectToDB();
         const { title, subtitle, categories, type, marque, years, raters, price, quantity } = data;
-        console.log
         const titleItem = await Product.findOne({ title });
         if (titleItem) {
             return new Response(JSON.stringify({ message: "Product Already exists !" }), { status: 422 });

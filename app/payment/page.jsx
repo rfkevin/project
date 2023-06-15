@@ -2,15 +2,17 @@
 import React from 'react';
 import getStripe from '../../utils/getStripe';
 import { paymentCheckOut } from '../../endPoints/apiEndpoints';
-const page = () => {
+import { useSession,signOut } from 'next-auth/react';
+
+
+const Page = () => {
+    const { data: session } = useSession();
     const product = [{name: "bons", price: 10, quantity: 2}, {name: "city", price: 50, quantity: 4}]
+    const data = {listItems : product, email: session.email}
     const handleCheckout = async () => {
         const stripe = await getStripe();
-        const response =  await paymentCheckOut(product);
+        const response =  await paymentCheckOut(data);
         if(response.statusCode === 500) return;
-        const data = response.data
-        console.log(data) ;
-
         stripe.redirectToCheckout({sessionId: data.id})
     }
   return (
@@ -21,4 +23,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

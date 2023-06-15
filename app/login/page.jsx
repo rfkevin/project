@@ -5,34 +5,31 @@ import Link from 'next/link';
 import { signIn, signOut } from "next-auth/react";
 import { loginValidation } from '../../utils/validation';
 import { useFormik } from 'formik';
-import { Paper, Box, Button, TextField } from '@mui/material';
-/* `${styles["bababa"]}`, ${styles.koko}*/
+import { Paper, Box, Button, TextField, Typography } from '@mui/material';
 
 const Login = () => {
-  //form handler with formik 
+  // form handler with formik
   const formik = useFormik({
     initialValues: {
       email: "",
       password: ""
     },
     validate: loginValidation,
-    onSubmit
-  })
-  // login with password and email  function
+    onSubmit: async (values) => {
+      const status = await signIn('credentials', {
+        redirect: false,
+        email: values.email,
+        password: values.password,
+        callbackUrl: "http://localhost:3000/home"
+      });
+    }
+  });
 
-  async function onSubmit(values) {
-    const status  = await signIn('credentials', {
-      redirect: false,
-      email: values.email,
-      password: values.password,
-      callbackUrl: "http://localhost:3000/home"
-    })
-  }
+  // Google signIn function
+  const handleGoogleSignIn = async () => {
+    signIn('google', { callbackUrl: "http://localhost:3000/home" });
+  };
 
-  // google signIn function
-  async function handleGoogleSignIn() {
-    signIn('google', { callbackUrl: "http://localhost:3000/home" })
-  }
   return (
     <Box
       sx={{
@@ -77,48 +74,21 @@ const Login = () => {
           />
           <Box sx={{ textAlign: 'center', my: '1rem' }}>
             <Button type="submit" variant="contained" fullWidth>
-             
-             -=
-
-
-
-
-x
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              Log In
             </Button>
-        <Box sx={{ textAlign: 'center', my: '1rem' }}>
-          <Button variant="contained" fullWidth onClick={handleGoogleSignIn}>
-            Sign In with Google
+          </Box>
+        </form>
+        <Box sx={{ textAlign: 'center', mb: '1rem' }}>
+          <Button variant="outlined" fullWidth onClick={handleGoogleSignIn}>
+            Sign in with Google
           </Button>
         </Box>
-        <p className='text-center text-gray-400'>
-          Don't have an account yet? <Link href={'/register'}>Sign Up</Link>
-        </p>
+        <Typography variant="body2" align="center" color="textSecondary" gutterBottom>
+          Have an account? <Link href="/login">Sign In</Link>
+        </Typography>
       </Paper>
     </Box>
   );
-  
-}
+};
 
 export default Login;

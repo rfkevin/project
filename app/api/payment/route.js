@@ -1,11 +1,13 @@
 import Stripe from "stripe";
+import Order from "../../../models/order";
 
 const stripe =new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req) {
-    const listItems = await req.json();
+    const data = await req.json();
     const origin = req.headers.origin || req.headers.referer;
-    console.log(req.url)
+    const listItems = data.listItems;
+    const email = data.email;
     try {
         // Create Checkout Sessions from body params.
         const params = {
@@ -40,10 +42,31 @@ export async function POST(req) {
         const session = await stripe.checkout.sessions.create(params);
         console.log(session);
         const response = new Response(JSON.stringify(session), { status: 200, headers: { 'Content-Type': 'application/json' }});
+        const orderData = {
+            email, // Provide the email or obtain it from req or elsewhere
+            products: listItems,
+            total: session.amount_total, // Implement your own function to calculate the total
+          };
+          const orderResponse = await addOrder(orderData);
+          console.log(orderResponse);
         return response;
     } catch (err) {
         const body = JSON.stringify({ message: err.message });
         const response = new Response(body, { status: err.statusCode || 500, headers: { 'Content-Type': 'application/json' } });
         return response;
+    }
+}
+const addOrder = async (data) => {
+    try {
+        const { email, products, total } = data;
+        const newOrdres = await Order.create({
+            userId,
+            products,
+            total,
+        })
+        return new Response(JSON.stringify({ status: true, user: newOrdres }), { status: 201 });
+    } catch (error) {
+        console.error(error);
+        return new Response(JSON.stringify({ error: "Server Error" }), { status: 500 });
     }
 }
