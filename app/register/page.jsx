@@ -33,6 +33,7 @@ const Register = () => {
   })
 
   async function onSubmit(values) {
+    console.log(values);
     const result = await register(values);
     console.log(result);
   }

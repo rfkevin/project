@@ -56,27 +56,8 @@ export async function addProduct(product){
   return await dbRequest("/api/product", options);
 }
 
-//  show a product
-export async function getProduct(){
-  const options = {
-    method: "GET",
-  };
-  return await dbRequest("/api/product", options);
-}
+// order
 
-// remove an product
-export async function remProduct(product){
-  const options = {
-    method: "DELETE",
-    body: JSON.stringify(product),
-  };
-  return await dbRequest("/api/product", options);
-}
-//  update an product
-export async function updateProduct(product){
-  const options = {
-    method: "PUT",
-    body: JSON.stringify(product),
-  };
-  return await dbRequest("/api/product", options);
+export async function addOrder(order){
+  
 }

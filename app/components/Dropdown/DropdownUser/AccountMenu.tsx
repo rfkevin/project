@@ -1,30 +1,40 @@
-import * as React from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-import Button from '@mui/material/Button';
+import { useSession,signOut } from 'next-auth/react';
 
-export const  AccountMenu = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+export const AccountMenu = () => {
+  const { data: session } = useSession();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+    console.log(session);
   };
+  const LogOut = () => {
+      signOut()
+  }
+
+  // Handle the loading and error states
+  if (!session) {
+    return (
+      <div>
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <>
-        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
@@ -34,7 +44,7 @@ export const  AccountMenu = () => {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+            <Avatar src={session.user.image}  sx={{ width: 32, height: 32 }}></Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -52,11 +62,11 @@ export const  AccountMenu = () => {
           vertical: 'top',
           horizontal: 'left',
         }}
-      >
+      > 
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={LogOut}>Logout</MenuItem>
       </Menu>
     </>
   );
-}
+};
