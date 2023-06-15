@@ -3,35 +3,40 @@ import {Schema, model, models} from 'mongoose';
 // users model in database
 
 const ProductSchema = new Schema ({
-    id : {
-        type : String,
-        unique: [true, 'product already exist'],
-    },
 
     title : {
         type : String,
-        
-        
-        
-    },
-    note : {
-        type : Schema.Types.Mixed,  
+        unique: [true, 'product already exist'],
     },
     subtitle : {
         type: String,
         required: [true, "subtitle is required"],
+    },
+    categories: {
+        type : String,
+        required : [true, "categories is required"]
     },    
     type : {
         type : String,
         required: [true, "type of product is required"],
     },
+    marque : {
+        type : String,
+    },
+    years: {
+        type : Number,
+    },
     raters : {
         type : Number,
 
     },
-    prix : {
+    price : {
         type : Number,
-        required: [true, "prix is required"],
+        required: [true, "price is required"],
+    },
+    quantity : {
+        type : Number,
+        requires: [true, "quantity is required"],
     },
 });
 
