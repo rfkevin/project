@@ -4,23 +4,19 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Buttons } from '../../components/Buttons/Buttons';
 import styles from './page.module.css';
 import { ProductForm } from '../../components/Form/ProductForm';
-import { getProduct, remProduct } from '../../../endPoints/apiEndpoints';
+import { GetOrder, getProduct, remProduct } from '../../../endPoints/apiEndpoints';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'title', headerName: 'TITLE', width: 130 },
-  { field: 'subtitle', headerName: 'SUBTITLE', width: 130 },
+  { field: 'userId', headerName: 'USERID', width: 130 },
+  { field: 'products', headerName: 'PRODUCTS', width: 130 },
   {
-    field: 'categories',
-    headerName: 'CATEGORIES',
+    field: 'quantity',
+    headerName: 'QUANTITY',
     width: 100,
   },
-  { field: 'type', headerName: 'TYPE', width: 130 },
-  { field: 'marque', headerName: 'MARQUE', width: 130 },
-  { field: 'years', headerName: 'YEARS', width: 130 },
-  { field: 'raters', headerName: 'YEARS', width: 130 },
-  { field: 'price', headerName: 'PRICE', width: 130 },
-  { field: 'quantity', headerName: 'QUANTITY', width: 130 },
+  { field: 'total', headerName: 'TOTAL', width: 130 },
+  { field: 'createdAt', headerName: 'DATE', width: 130 },
 ];
 
 const DataTableProduct = () => {
@@ -46,12 +42,10 @@ const DataTableProduct = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getProduct();
-        const dataWithIds = response.data.product.map((product) => ({
-          ...product,
-          id: product._id,
-          title: product.title,
-          subtitle: product.subtitle,
+        const response = await GetOrder();
+        const dataWithIds = response.data.product.map((order) => ({
+          ...order,
+          id: order._id,
         }));
         setRows(dataWithIds);
       } catch (error) {

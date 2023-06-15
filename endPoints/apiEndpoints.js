@@ -80,3 +80,10 @@ export async function updateProduct(product){
   };
   return await dbRequest("/api/product", options);
 }
+// order
+export async function GetOrder(){
+  const options = {
+    method: "GET"
+  };
+  return await dbRequest("/api/order", options);
+}
